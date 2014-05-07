@@ -1,0 +1,67 @@
+﻿<Application 
+    x:Class="Boykot.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives">
+
+    <!--Application Resources-->
+    <Application.Resources>
+
+        <DataTemplate x:Key="GroupHeaderTemplate">
+            <Border Background="Transparent" Margin="0,8,0,8">
+                <Border Background="{StaticResource PhoneAccentBrush}" 	
+                                        Padding="8,0,0,0" Width="62" Height="62" 				 
+                                        HorizontalAlignment="Left">
+                    <TextBlock Text="{Binding Key}" 
+                                               Foreground="#FFFFFF" 
+                                               FontSize="48"
+                                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Bottom"/>
+                </Border>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="GroupHeaderWideTemplate">
+            <Border Background="Transparent" Margin="0,8,0,8">
+                <Border Background="{StaticResource PhoneAccentBrush}" 	
+                                        Width="62" Height="62" 
+                                        HorizontalAlignment="Left" >
+                    <Image Source="{Binding Key}" 
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                </Border>
+            </Border>
+        </DataTemplate>
+        <DataTemplate x:Key="GroupItemTemplate">
+            <Border Background="{StaticResource PhoneAccentBrush}" Width="99" Height="99" Margin="6">
+                <TextBlock Text="{Binding Key}" 
+                           Foreground="#FFFFFF" 
+                           FontSize="40" Margin="12"/>
+            </Border>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="GroupItemWideTemplate">
+            <Border Background="{StaticResource PhoneAccentBrush}"
+                    HorizontalAlignment="Left"
+                    Width="99" Height="99" >
+                <Image Source="{Binding Key}" 
+                       Stretch="None"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+            </Border>
+        </DataTemplate>
+
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService 
+            Launching="Application_Launching" Closing="Application_Closing" 
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>
